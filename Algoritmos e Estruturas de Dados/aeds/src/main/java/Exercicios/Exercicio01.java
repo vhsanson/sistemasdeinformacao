@@ -26,7 +26,7 @@ public class Exercicio01 {
     
     //ordenar o vetor usando o método de inserção
     public static void ordenaVetor(int tamanho, int vetor[]){
-        
+        int contador = 0;
         for (int i = 1; i < tamanho; i++) {
             int auxiliar = vetor[i];
             int j = i-1;
@@ -35,10 +35,11 @@ public class Exercicio01 {
             while (j >= 0 && vetor[j] > auxiliar) {
                 vetor [j+1] =vetor[j];
                 j--;
+                contador++;
             }
-            
+            contador++;
             vetor[j+1] = auxiliar;
-            
+            System.out.print("Numero de comparacoes foi: "+contador);
         }
     }
 }
