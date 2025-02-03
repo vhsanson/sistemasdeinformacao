@@ -1,0 +1,124 @@
+# 📌 Guia Rápido de Git
+
+## 🔧 Configuração Inicial
+```sh
+git config --global user.name "SeuNome"      # Define o nome do usuário globalmente  
+git config --global user.email "seu@email.com"  # Define o e-mail do usuário  
+git config --global init.defaultBranch main  # Define "main" como o branch principal  
+```
+💡 *Essas configurações são aplicadas globalmente ao seu sistema*  
+
+---
+
+## 📂 Comandos Básicos do Terminal
+```sh
+mkdir nome_da_pasta   # Cria uma pasta  
+cd nome_da_pasta      # Acessa a pasta  
+ls                    # Lista arquivos e diretórios  
+rm -rf nome_do_arquivo # Remove arquivos/pastas à força  
+touch README.md       # Cria um arquivo vazio  
+```
+💡 *Últil para organizar seu projeto antes de iniciar com Git*  
+
+---
+
+## 📌 Inicialização e Clonagem
+```sh
+git init                     # Inicia um repositório Git  
+git remote add origin URL    # Conecta o repositório local ao GitHub  
+git clone URL novo-nome      # Clona um repositório remoto  
+```
+💡 *Use `git init` apenas ao criar um repositório novo do zero!*  
+
+---
+
+## 📁 Gerenciamento de Branches
+```sh
+git branch nome_da_branch      # Cria uma nova branch  
+git checkout nome_da_branch    # Alterna para a branch especificada  
+git merge nome_da_branch       # Mescla a branch atual com outra  
+```
+💡 *Dica: Use `git checkout -b nome_da_branch` para criar e já trocar de branch de uma vez!*  
+
+---
+
+## 🔍 Status e Histórico
+```sh
+git status        # Mostra mudanças nos arquivos  
+git diff          # Mostra diferenças nos arquivos modificados  
+git log          # Exibe o histórico de commits  
+git reflog       # Mostra histórico de commits mesmo após resets  
+```
+💡 *Últil para entender o que mudou no repositório e reverter alterações se necessário*  
+
+---
+
+## 🚀 Enviando e Atualizando Código
+```sh
+git add arquivo.ext      # Adiciona um arquivo ao commit  
+git add .               # Adiciona TODOS os arquivos modificados  
+git commit -m "mensagem" # Salva as mudanças com um comentário  
+git push -u origin main  # Envia para o repositório remoto  
+```
+💡 *Sempre escreva mensagens de commit descritivas!*  
+
+---
+
+## 🛠 Desfazendo Alterações
+```sh
+git restore arquivo.ext           # Desfaz mudanças no diretório de trabalho  
+git restore --staged arquivo.ext  # Remove do staged sem perder as alterações  
+git reset --mixed <commit>        # Volta ao commit sem perder mudanças  
+git reset --hard <commit>         # Volta ao commit e descarta tudo!  
+git commit --amend -m "nova msg"  # Edita a última mensagem de commit  
+```
+💡 *Cuidado com `git reset --hard`, pois ele apaga as mudanças sem chance de recuperação!*  
+
+---
+
+## 🔄 Sincronização com o Repositório Remoto
+```sh
+git pull origin main  # Atualiza seu repositório local com as mudanças remotas  
+git fetch            # Obtém as atualizações do repositório remoto sem aplicá-las  
+git rebase main      # Aplica mudanças do main na sua branch atual  
+```
+💡 *Use `git pull --rebase` para evitar commits desnecessários de merge!*  
+
+---
+
+## 🔥 Resolvendo Conflitos de Merge
+1. Após um conflito, edite os arquivos indicados por `git status`.  
+2. Remova as marcações `<<<<<<<`, `=======` e `>>>>>>>` e escolha a versão correta.  
+3. Após resolver, rode:  
+```sh
+git add arquivo_resolvido.ext  
+git commit -m "Resolve conflito no arquivo X"  
+git push origin nome_da_branch  
+```
+💡 *Ferramentas como VS Code, Beyond Compare e Meld ajudam na resolução de conflitos!*  
+
+---
+
+## ⏳ Stash: Salvando Alterações Temporariamente
+```sh
+git stash          # Guarda as mudanças temporariamente  
+git stash list     # Lista os stashes salvos  
+git stash pop      # Recupera as mudanças salvas e as remove do stash  
+git stash apply    # Aplica as mudanças sem removê-las do stash  
+git stash drop     # Remove um stash específico  
+```
+💡 *Últil quando precisa trocar de branch sem perder mudanças!*  
+
+---
+
+## ✅ Melhores Práticas para Git
+✔ **Commits Pequenos e Frequentes** → Facilita reverter mudanças e revisar código.  
+✔ **Mensagens de Commit Descritivas** → Exemplo: `"Corrige bug na autenticação"` ao invés de `"Correção"`.  
+✔ **Use `.gitignore`** → Evite versionar arquivos desnecessários como `node_modules` e `env`.  
+✔ **Sempre Sincronize Antes de Commits** → Evita conflitos ao trabalhar em equipe.  
+✔ **Revise Antes de Dar `git push`** → Use `git status` e `git diff` para conferir mudanças antes de enviar.  
+
+---
+
+🚀 *Agora você tem um guia rápido e eficiente para trabalhar com Git!*
+
